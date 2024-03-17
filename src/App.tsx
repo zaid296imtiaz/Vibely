@@ -31,55 +31,56 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
-import {Home, ForgotPassword, Register, Login} from './pages'
+import { Home, ForgotPassword, Register, Login } from "./pages";
 
 import { liveProvider, dataProvider, authProvider } from "./providers";
+import { Layout } from "./pages/components/layout";
 
 function App() {
   return (
     <BrowserRouter>
       <GitHubBanner />
       <RefineKbarProvider>
-          <AntdApp>
-            <DevtoolsProvider>
-              <Refine
-                dataProvider={dataProvider}
-                liveProvider={liveProvider}
-                notificationProvider={useNotificationProvider}
-                routerProvider={routerBindings}
-                authProvider={authProvider}
-                resources={[
-                  {
-                    name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
+        <AntdApp>
+          <DevtoolsProvider>
+            <Refine
+              dataProvider={dataProvider}
+              liveProvider={liveProvider}
+              notificationProvider={useNotificationProvider}
+              routerProvider={routerBindings}
+              authProvider={authProvider}
+              resources={[
+                {
+                  name: "blog_posts",
+                  list: "/blog-posts",
+                  create: "/blog-posts/create",
+                  edit: "/blog-posts/edit/:id",
+                  show: "/blog-posts/show/:id",
+                  meta: {
+                    canDelete: true,
                   },
-                  {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
+                },
+                {
+                  name: "categories",
+                  list: "/categories",
+                  create: "/categories/create",
+                  edit: "/categories/edit/:id",
+                  show: "/categories/show/:id",
+                  meta: {
+                    canDelete: true,
                   },
-                ]}
-                options={{
-                  syncWithLocation: true,
-                  warnWhenUnsavedChanges: true,
-                  useNewQueryKeys: true,
-                  projectId: "3Rbvit-E7Ak2l-sMpc6w",
-                  liveMode: "auto",
-                }}
-              >
-                <Routes>
-                  <Route
+                },
+              ]}
+              options={{
+                syncWithLocation: true,
+                warnWhenUnsavedChanges: true,
+                useNewQueryKeys: true,
+                projectId: "3Rbvit-E7Ak2l-sMpc6w",
+                liveMode: "auto",
+              }}
+            >
+              <Routes>
+                {/* <Route
                     element={
                       <Authenticated
                         key="authenticated-inner"
@@ -111,36 +112,35 @@ function App() {
                       <Route path="show/:id" element={<CategoryShow />} />
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />
-                  </Route>
+                  </Route> */}
 
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route
+                  element={
+                    <Authenticated
+                      key="authenticated-layout"
+                      fallback={<CatchAllNavigate to={"/login"} />}
+                    >
+                      {/* <NavigateToResource /> */}
+                      <Layout>
+                        <Outlet />
+                      </Layout>
+                    </Authenticated>
+                  }
+                >
+                  <Route index element={<Home />} />
+                </Route>
+              </Routes>
 
-                  <Route
-                    element={
-                      <Authenticated
-                        key="authenticated-outer"
-                        fallback={<Outlet />}
-                      >
-                        <NavigateToResource />
-                      </Authenticated>
-                    }
-                  >
-                    <Route index element={<Home/>} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route
-                      path="/forgot-password"
-                      element={<ForgotPassword />}
-                    />
-                  </Route>
-                </Routes>
-
-                <RefineKbar />
-                <UnsavedChangesNotifier />
-                <DocumentTitleHandler />
-              </Refine>
-              <DevtoolsPanel />
-            </DevtoolsProvider>
-          </AntdApp>
+              <RefineKbar />
+              <UnsavedChangesNotifier />
+              <DocumentTitleHandler />
+            </Refine>
+            <DevtoolsPanel />
+          </DevtoolsProvider>
+        </AntdApp>
       </RefineKbarProvider>
     </BrowserRouter>
   );

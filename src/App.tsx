@@ -31,9 +31,7 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
-import { ForgotPassword } from "./pages/forgotPassword";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
+import {Home, ForgotPassword, Register, Login} from './pages'
 
 import { liveProvider, dataProvider, authProvider } from "./providers";
 
@@ -114,6 +112,8 @@ function App() {
                     </Route>
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
+
+
                   <Route
                     element={
                       <Authenticated
@@ -124,6 +124,7 @@ function App() {
                       </Authenticated>
                     }
                   >
+                    <Route index element={<Home/>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route

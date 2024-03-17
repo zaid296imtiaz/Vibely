@@ -15,7 +15,7 @@ const customFetch = async (url: string, options: RequestInit) => {
     headers: {
       ...headers,
       Authorization: headers?.Authorization || `Bearer ${accessToken}`,
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
       "Apollo-Require-Preflight": "true",
     },
   });
@@ -26,7 +26,7 @@ const getGraphQLErrors = (
 ): Error | null => {
   if (!body) {
     return {
-      message: "Unknown Error",
+      message: "Unknown error",
       statusCode: "INTERNAL_SERVER_ERROR",
     };
   }
@@ -50,12 +50,13 @@ export const fetchWrapper = async (url: string, options: RequestInit) => {
   const response = await customFetch(url, options);
 
   const responseClone = response.clone();
-
   const body = await responseClone.json();
 
   const error = getGraphQLErrors(body);
 
-  if (error) throw error;
+  if (error) {
+    throw error;
+  }
 
   return response;
 };

@@ -20,7 +20,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src", "vite.config.ts"],
+  "include": ["src", "vite.config.ts", "graphql"],
   "references": [
     {
       "path": "./tsconfig.node.json"

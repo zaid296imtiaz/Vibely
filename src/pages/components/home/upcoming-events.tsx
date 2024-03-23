@@ -8,7 +8,6 @@ import { DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY } from "@/graphql/queries";
 import dayjs from "dayjs";
 
 export const UpcomingEvents = () => {
-
   const { data, isLoading: eventsLoading } = useList({
     resource: "events",
     pagination: { pageSize: 5 },
@@ -29,8 +28,6 @@ export const UpcomingEvents = () => {
       gqlQuery: DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY,
     },
   });
-
-  /** Todo: Add real data source to LISTS */
 
   return (
     <Card

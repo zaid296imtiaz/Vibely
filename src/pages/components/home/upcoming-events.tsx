@@ -52,7 +52,7 @@ export const UpcomingEvents = () => {
         </div>
       }
     >
-      {isLoading ? (
+      {eventsLoading ? (
         <List
           itemLayout="horizontal"
           dataSource={Array.from({ length: 5 }).map((_, index) => ({
@@ -83,7 +83,7 @@ export const UpcomingEvents = () => {
           }}
         />
       )}
-      {!isLoading && data?.data.length === 0 && (
+      {!eventsLoading && data?.data.length === 0 && (
         <span
           style={{
             display: "flex",

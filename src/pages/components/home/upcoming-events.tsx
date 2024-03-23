@@ -1,7 +1,6 @@
 import { CalendarOutlined } from "@ant-design/icons";
 import { Badge, Card, List } from "antd";
 import { Text } from "../text";
-import { useState } from "react";
 import UpcomingEventsSkeleton from "../skeleton/upcoming-events";
 import { getDate } from "@/utilities/helpers";
 import { useList } from "@refinedev/core";
@@ -9,7 +8,6 @@ import { DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY } from "@/graphql/queries";
 import dayjs from "dayjs";
 
 export const UpcomingEvents = () => {
-  const [isLoading, setIsloading] = useState(false);
 
   const { data, isLoading: eventsLoading } = useList({
     resource: "events",

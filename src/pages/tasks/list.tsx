@@ -10,7 +10,7 @@ import { TASKS_QUERY, TASK_STAGES_QUERY } from "@/graphql/queries";
 import { TaskStage } from "@/graphql/schema.types";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { TasksQuery } from "@/graphql/types";
-import ProjectCard from "../components/tasks/kanban/card";
+import ProjectCard, { ProjectCardMemo } from "../components/tasks/kanban/card";
 
 const Tasks = () => {
   const { data: stages, isLoading: isLoadingStages } = useList<TaskStage>({
@@ -67,7 +67,9 @@ const Tasks = () => {
 
     const grouped: TaskStage[] = stages.data.map((stage) => ({
       ...stage,
-      tasks: tasks?.data.filter((task) => task.stageId?.toString() === stage.id),
+      tasks: tasks?.data.filter(
+        (task) => task.stageId?.toString() === stage.id
+      ),
     }));
 
     return { unassignedStage, columns: grouped };
@@ -91,7 +93,10 @@ const Tasks = () => {
                 id={task.id}
                 data={{ ...task, stageId: "unassigned" }}
               >
-               <ProjectCard {...task} dueDate={task.dueDate || undefined} />
+                <ProjectCardMemo
+                  {...task}
+                  dueDate={task.dueDate || undefined}
+                />
               </KanbanItem>
             ))}
           </KanbanColumn>

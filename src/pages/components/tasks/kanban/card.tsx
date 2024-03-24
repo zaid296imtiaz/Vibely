@@ -9,7 +9,7 @@ import {
   Tooltip,
   theme,
 } from "antd";
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import { Text } from "../../text";
 import { MenuProps } from "antd/lib";
 import {
@@ -170,3 +170,13 @@ const ProjectCard = ({ dueDate, id, title, users }: ProjectCardProps) => {
 };
 
 export default ProjectCard;
+
+export const ProjectCardMemo = memo(ProjectCard, (prev, next) => {
+  return (
+    prev.id === next.id &&
+    prev.title === next.title &&
+    prev.dueDate === next.dueDate &&
+    prev.users?.length === next.users?.length &&
+    prev.updatedAt === next.updatedAt
+  );
+});

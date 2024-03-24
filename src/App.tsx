@@ -25,6 +25,7 @@ import { liveProvider, dataProvider, authProvider } from "./providers";
 import { Layout } from "./pages/components/layout";
 import { resources } from "./config/resources";
 import EditPage from "./pages/company/edit";
+import Tasks from "./pages/tasks/list";
 
 function App() {
   return (
@@ -104,6 +105,10 @@ function App() {
                     <Route index element={<CompanyList/>} />
                     <Route path="new" element={<Create/>} />
                     <Route path="edit/:id" element={<EditPage/>} />
+                  </Route>
+                  <Route path="/tasks">
+                    <Route index element={<Tasks/>} />
+
                   </Route>
                 </Route>
               </Routes>

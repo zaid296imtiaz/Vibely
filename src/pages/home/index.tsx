@@ -3,6 +3,7 @@ import React from "react";
 import {
   DashboardTotalCountsCards,
   DealsChart,
+  LatestActivities,
   UpcomingEvents,
 } from "../components";
 import { useCustom } from "@refinedev/core";
@@ -10,14 +11,13 @@ import { DASHBOARD_TOTAL_COUNTS_QUERY } from "@/graphql/queries";
 import { DashboardTotalCountsQuery } from "@/graphql/types";
 
 export const Home = () => {
-
-  const {data, isLoading} = useCustom<DashboardTotalCountsQuery>({
-    url: '',
-    method: 'get',
+  const { data, isLoading } = useCustom<DashboardTotalCountsQuery>({
+    url: "",
+    method: "get",
     meta: {
-      gqlQuery: DASHBOARD_TOTAL_COUNTS_QUERY
-    }
-  })
+      gqlQuery: DASHBOARD_TOTAL_COUNTS_QUERY,
+    },
+  });
 
   return (
     <div>
@@ -51,6 +51,17 @@ export const Home = () => {
         </Col>
         <Col xs={24} sm={24} xl={16} style={{ height: "460px" }}>
           <DealsChart />
+        </Col>
+      </Row>
+      <Row
+        gutter={[32, 32]}
+        style={{
+          marginTop: "32px",
+        }}
+      >
+        <Col xs={24}>
+          {" "}
+          <LatestActivities />
         </Col>
       </Row>
     </div>

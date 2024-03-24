@@ -19,7 +19,7 @@ import routerBindings, {
 import { App as AntdApp } from "antd";
 import { createClient } from "graphql-ws";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { Home, ForgotPassword, Register, Login } from "./pages";
+import { Home, ForgotPassword, Register, Login, CompanyList } from "./pages";
 
 import { liveProvider, dataProvider, authProvider } from "./providers";
 import { Layout } from "./pages/components/layout";
@@ -99,6 +99,7 @@ function App() {
                   }
                 >
                   <Route index element={<Home />} />
+                  <Route path="/companies" element={<CompanyList/>} />
                 </Route>
               </Routes>
 

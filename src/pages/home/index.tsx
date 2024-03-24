@@ -5,7 +5,7 @@ import {
   DealsChart,
   LatestActivities,
   UpcomingEvents,
-} from "../components";
+} from "../../components";
 import { useCustom } from "@refinedev/core";
 import { DASHBOARD_TOTAL_COUNTS_QUERY } from "@/graphql/queries";
 import { DashboardTotalCountsQuery } from "@/graphql/types";

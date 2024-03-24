@@ -3,12 +3,12 @@ import React from "react";
 
 import { Edit, useForm, useSelect } from "@refinedev/antd";
 import { UPDATE_COMPANY_MUTATION } from "@/graphql/mutations";
-import { CustomAvatar } from "../components/custom-avatar";
+import { CustomAvatar } from "../../components/custom-avatar";
 import { getNameInitials } from "@/utilities";
 import { USERS_SELECT_QUERY } from "@/graphql/queries";
 import { UsersSelectQuery } from "@/graphql/types";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
-import SelectOptionWithAvatar from "../components/select-option-with-avatar";
+import SelectOptionWithAvatar from "../../components/select-option-with-avatar";
 import {
   businessTypeOptions,
   companySizeOptions,

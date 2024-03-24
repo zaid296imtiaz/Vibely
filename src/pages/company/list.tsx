@@ -11,8 +11,8 @@ import {
 } from "@refinedev/antd";
 import { getDefaultFilter, useGo } from "@refinedev/core";
 import { Input, Space, Table } from "antd";
-import { CustomAvatar } from "../components/custom-avatar";
-import { Text } from "../components/text";
+import { CustomAvatar } from "../../components/custom-avatar";
+import { Text } from "../../components/text";
 import { Company } from "@/graphql/schema.types";
 import { currencyNumber } from "@/utilities";
 

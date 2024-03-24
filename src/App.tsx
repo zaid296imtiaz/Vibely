@@ -22,10 +22,10 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { Home, ForgotPassword, Register, Login, CompanyList, Create } from "./pages";
 
 import { liveProvider, dataProvider, authProvider } from "./providers";
-import { Layout } from "./pages/components/layout";
+import { Layout } from "./components/layout";
 import { resources } from "./config/resources";
 import EditPage from "./pages/company/edit";
-import Tasks from "./pages/tasks/list";
+import List from "./pages/tasks/list";
 
 function App() {
   return (
@@ -107,7 +107,7 @@ function App() {
                     <Route path="edit/:id" element={<EditPage/>} />
                   </Route>
                   <Route path="/tasks">
-                    <Route index element={<Tasks/>} />
+                    <Route index element={<List/>} />
 
                   </Route>
                 </Route>

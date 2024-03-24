@@ -17,9 +17,9 @@ import { statusOptions } from "@/constants";
 import { COMPANY_CONTACTS_TABLE_QUERY } from "@/graphql/queries";
 
 import { CompanyContactsTableQuery } from "@/graphql/types";
-import { CustomAvatar } from "../components/custom-avatar";
-import { ContactStatusTag } from "../components/tags/contact-status-tag";
-import { Text } from "../components/text";
+import { CustomAvatar } from "../../components/custom-avatar";
+import { ContactStatusTag } from "../../components/tags/contact-status-tag";
+import { Text } from "../../components/text";
 // import CustomAvatar from "@/components/custom-avatar";
 // import { ContactStatusTag } from "@/components/tags/contact-status-tag";
 

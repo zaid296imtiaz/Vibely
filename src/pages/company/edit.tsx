@@ -73,8 +73,7 @@ const EditPage = () => {
                       label: (
                         <SelectOptionWithAvatar
                           name={user.name}
-                          avatarUrl={user.avatarUrl ?? undefined}
-                        />
+                          avatarUrl={user.avatarUrl ?? undefined} shape={"circle"}                        />
                       ),
                     })) ?? []
                   }

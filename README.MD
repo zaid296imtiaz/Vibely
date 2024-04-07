@@ -1,5 +1,5 @@
 <div align="center" style="margin: 30px; border-radius: 1rem">
-<img src="./public/vibe.png" alt="Refine Logo" style="border-radius: 1rem" />
+<img src="./public/vibe.png" alt="vibely Logo" style="border-radius: 1rem" />
 
 </div>
 
